@@ -1,0 +1,2 @@
+recursive-include crates *
+include Cargo.toml Cargo.lock README.md NOTICE LICENSE

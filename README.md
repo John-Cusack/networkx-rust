@@ -53,7 +53,10 @@ identical to stock networkx. Gates:
 | x1 | 2.9 | 1.3 | 2.29x | 46.6 → 47.4 MiB |
 
 (Filled by `bench/bench.py --driver`; numbers land in
-`bench/bench_evidence.json`. Tier-1 pure-Python attempts for context:
+`bench/bench_evidence.json`. Full lane record — workload, tier-1
+scripts, equiv corpus, verification — lives in rustsmith
+`data/rs-port-networkx/` alongside ADR-061. Tier-1 pure-Python attempts
+for context:
 per-call adjacency export 0.4–0.9x (measured loser — export costs more
 than the `dict.get` + weight-lambda it removes); cross-query cached
 export 1.4–1.7x (needs a caching-handle API, not drop-in).)
