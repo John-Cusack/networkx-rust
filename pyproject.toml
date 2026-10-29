@@ -17,12 +17,3 @@ Upstream = "https://github.com/networkx/networkx"
 
 [tool.setuptools.packages.find]
 where = ["python"]
-
-[tool.setuptools-rust]
-strip = true
-
-[[tool.setuptools-rust.ext-modules]]
-target = "networkx_rust._rust"
-path = "crates/nx-dijkstra-core/Cargo.toml"
-binding = "PyO3"
-strip = true

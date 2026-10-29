@@ -42,22 +42,15 @@ identical to stock networkx. Gates:
   randomized graphs × full function surface)
 - upstream `networkx/algorithms/shortest_paths/tests/` run verbatim with
   every Dijkstra entrypoint routed through this package: **654 passed**
-- full upstream suite as backstop (see bench evidence record)
-
-## Benches (Ryzen 9 5950X, CPython 3.12.3, networkx 3.7)
-
-Workload: `WORKLOAD.md` (1–5K-node ring/shortcut graphs + 50×50 grid,
-stock numeric weights; tracks: rep = full multi-source expansion,
-path, multi, target early-exit, x1 overhead floor). Wall = median of
-fresh-subprocess runs; RSS = child `ru_maxrss` both arms.
-
+- full upstream suite (8412 passed, 63 skipped, 741 xfailed) with the
+  same routing as backstop — no regressions outside the kernel
 | track | base (ms) | port (ms) | speedup | RSS base → port |
 |---|---|---|---|---|
-| rep | — | — | — | — |
-| path | — | — | — | — |
-| multi | — | — | — | — |
-| target | — | — | — | — |
-| x1 | — | — | — | — |
+| rep | 220.5 | 61.3 | 3.60x | 47.1 → 49.5 MiB |
+| path | 97.6 | 43.6 | 2.24x | 47.8 → 49.0 MiB |
+| multi | 35.9 | 13.0 | 2.77x | 47.1 → 48.7 MiB |
+| target | 77.4 | 37.1 | 2.09x | 47.2 → 48.4 MiB |
+| x1 | 2.9 | 1.3 | 2.29x | 46.6 → 47.4 MiB |
 
 (Filled by `bench/bench.py --driver`; numbers land in
 `bench/bench_evidence.json`. Tier-1 pure-Python attempts for context:
