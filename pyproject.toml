@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61", "setuptools-rust>=1.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "networkx-rust"
+version = "0.1.0"
+description = "Rust-accelerated Dijkstra shortest-path kernel for networkx"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.9"
+dependencies = ["networkx>=3.0"]
+
+[project.urls]
+Homepage = "https://github.com/John-Cusack/networkx-rust"
+Upstream = "https://github.com/networkx/networkx"
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools-rust]
+strip = true
+
+[[tool.setuptools-rust.ext-modules]]
+target = "networkx_rust._rust"
+path = "crates/nx-dijkstra-core/Cargo.toml"
+binding = "PyO3"
+strip = true

@@ -1,0 +1,22 @@
+NOTICE — networkx-rust
+
+This repository contains an independent implementation of a Dijkstra
+shortest-path kernel written in Rust, plus a Python dispatch layer that
+calls it for stock numeric edge weights and otherwise delegates to
+networkx itself. No networkx source code is copied here.
+
+Upstream project attributed:
+
+  networkx — https://github.com/networkx/networkx
+  Copyright (c) networkx developers. All rights reserved.
+  License: BSD-3-Clause (see
+  https://github.com/networkx/networkx/blob/main/LICENSE.txt).
+  If you use the fallback paths of this package, you run networkx code
+  under that license.
+
+Scope: only the Dijkstra shortest-path family
+(`single_source_*`, `multi_source_*`, `dijkstra_path(_length)`,
+`dijkstra_predecessor_and_distance`, `all_pairs_dijkstra*`) is
+accelerated. Everything else — graph classes, generators, all other
+algorithms — stays verbatim upstream networkx and is never reimplemented
+here.

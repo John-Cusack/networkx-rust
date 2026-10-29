@@ -1,0 +1,14 @@
+[package]
+name = "nx-dijkstra-core"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-3-Clause"
+description = "Rust Dijkstra kernel for networkx-rust (whole-graph crossing, stock numeric weights)"
+repository = "https://github.com/John-Cusack/networkx-rust"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "nx_dijkstra_core"
+
+[dependencies]
+pyo3 = { version = "0.24", features = ["extension-module", "abi3-py39"] }

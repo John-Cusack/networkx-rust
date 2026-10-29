@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/nx-dijkstra-core"]
+resolver = "2"
